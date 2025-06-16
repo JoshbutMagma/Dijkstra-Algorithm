@@ -1,4 +1,19 @@
 #BlueJ class context
 comment0.target=Node
-comment0.text=\r\n\ Object\ class\ for\ nodes\r\n\r\n\ Joshua\ Hunter\r\n\ 16/06/25\ -\ \r\n
-numComments=1
+comment0.text=\r\n\ Object\ class\ for\ nodes\r\n\r\n\ Josh\ Hunter\r\n\ 16/06/25\ -\ \r\n
+comment1.params=nodeNum
+comment1.target=Node(int)
+comment1.text=\r\n\ Constructor\ for\ a\ node\r\n
+comment2.params=
+comment2.target=int\ getNodeNum()
+comment2.text=\r\n\ Various\ getters\ for\ nodes\r\n
+comment3.params=
+comment3.target=Node\ getLastNode()
+comment4.params=
+comment4.target=int\ getDistance()
+comment5.params=lastNode
+comment5.target=void\ setLastNode(Node)
+comment5.text=\r\n\ Various\ setters\ for\ nodes\r\n
+comment6.params=distance
+comment6.target=void\ setDistance(int)
+numComments=7
