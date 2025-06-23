@@ -20,9 +20,6 @@ public class Gui extends JFrame implements ActionListener
     JButton random;
     JButton submitNodeAnswer;
     JButton createDiagram;
-    
-    Node firstNode;
-    Node finalNode;
     /**
      * Constructor for the main window and objects in the window
      */
@@ -76,18 +73,6 @@ public class Gui extends JFrame implements ActionListener
         createDiagram = new JButton("Create Diagram!");
         createDiagram.addActionListener(this);
         bottomPanel.add(createDiagram);
-        
-        /**
-         * Testing a linear version of the algorithm
-         *\
-        new LinkedList(new Node(1));
-        Node currentNode;
-        for(int i=1; i<3; i++){
-            currentNode = LinkedList.getFirstNode();
-            while(currentNode.getNextNodeNum()!=null){
-                
-            }
-        }*/
         
         //Make the window appear on the screen
         this.pack();

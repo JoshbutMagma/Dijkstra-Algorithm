@@ -8,21 +8,18 @@
 public class Node
 {
     private int nodeNum;
-    private Node prevNode;
+    private Node previousNode;
     private int distance;
+    private boolean completedStatus;
     
     /**
      * Constructor for a node
      */
-    public Node(){
-        this.nodeNum = 0;
-        this.prevNode = null;
-        this.distance = -1;
-    }
     public Node(int nodeNum){
         this.nodeNum = nodeNum;
-        this.prevNode = null;
+        this.previousNode = null;
         this.distance = -1;
+        this.completedStatus = false;
     }
     
     /**
@@ -31,20 +28,26 @@ public class Node
     public int getNodeNum(){
         return(this.nodeNum);
     }
-    public Node getprevNode(){
-        return(this.prevNode);
+    public Node getPreviousNode(){
+        return(this.previousNode);
     }
     public int getDistance(){
         return(this.distance);
+    }
+    public boolean getCompletedStatus(){
+        return(this.completedStatus);
     }
     
     /**
      * Various setters for nodes
      */
-    public void setPrevNode(Node prevNode){
-        this.prevNode = prevNode;
+    public void setPreviousNode(Node previousNode){
+        this.previousNode = previousNode;
     }
     public void setDistance(int distance){
         this.distance = distance;
+    }
+    public void setCompletedStatus(boolean completedStatus){
+        this.completedStatus = completedStatus;
     }
 }

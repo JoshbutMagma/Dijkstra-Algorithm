@@ -11,12 +11,11 @@ public class LinkedList
     private Node finalNode;
     
     public LinkedList(){
-        this.firstNode = null;
-        this.finalNode = null;
+        
     }
     public LinkedList(Node firstNode){
         this.firstNode = firstNode;
-        this.finalNode = null;
+        this.finalNode = firstNode;
     }
     
     public Node getFirstNode(){
