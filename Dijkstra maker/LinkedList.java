@@ -3,10 +3,33 @@
  * Where the linked list object will be started
  *
  * Josh Hunter
- * @version (a version number or a date)
+ * 17/06/25 - 
  */
 public class LinkedList
 {
-    Node firstNode;
-    Node lastNode;
+    private Node firstNode;
+    private Node finalNode;
+    
+    public LinkedList(){
+        this.firstNode = null;
+        this.finalNode = null;
+    }
+    public LinkedList(Node firstNode){
+        this.firstNode = firstNode;
+        this.finalNode = null;
+    }
+    
+    public Node getFirstNode(){
+        return(this.firstNode);
+    }
+    public Node getFinalNode(){
+        return(this.finalNode);
+    }
+    
+    public void setFirstNode(Node firstNode){
+        this.firstNode = firstNode;
+    }
+    public void setFinalNode(Node finalNode){
+        this.finalNode = finalNode;
+    }
 }

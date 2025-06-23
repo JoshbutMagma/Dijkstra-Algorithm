@@ -1,5 +1,6 @@
 TO DO:
-Put stuff in the LinkedList class
+Have the algorithm print the output/use a dialogBox
+Have the buttons do things
 
 OTHER NOTES:
 Trialling the flowlayout location (top of screen, side of screen, etc) IS valid trialling.

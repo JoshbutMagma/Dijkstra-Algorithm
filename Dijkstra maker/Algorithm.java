@@ -7,5 +7,7 @@
  */
 public class Algorithm
 {
-    
+    public void dijkstraAlgorithm(){
+        
+    }
 }

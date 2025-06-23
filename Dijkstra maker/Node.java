@@ -8,15 +8,20 @@
 public class Node
 {
     private int nodeNum;
-    private Node lastNode;
+    private Node prevNode;
     private int distance;
     
     /**
      * Constructor for a node
      */
+    public Node(){
+        this.nodeNum = 0;
+        this.prevNode = null;
+        this.distance = -1;
+    }
     public Node(int nodeNum){
         this.nodeNum = nodeNum;
-        this.lastNode = null;
+        this.prevNode = null;
         this.distance = -1;
     }
     
@@ -26,8 +31,8 @@ public class Node
     public int getNodeNum(){
         return(this.nodeNum);
     }
-    public Node getLastNode(){
-        return(this.lastNode);
+    public Node getprevNode(){
+        return(this.prevNode);
     }
     public int getDistance(){
         return(this.distance);
@@ -36,8 +41,8 @@ public class Node
     /**
      * Various setters for nodes
      */
-    public void setLastNode(Node lastNode){
-        this.lastNode = lastNode;
+    public void setPrevNode(Node prevNode){
+        this.prevNode = prevNode;
     }
     public void setDistance(int distance){
         this.distance = distance;

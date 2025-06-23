@@ -1,4 +1,16 @@
 #BlueJ class context
 comment0.target=LinkedList
-comment0.text=\r\n\ Where\ the\ linked\ list\ object\ will\ be\ started\r\n\r\n\ Josh\ Hunter\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-numComments=1
+comment0.text=\r\n\ Where\ the\ linked\ list\ object\ will\ be\ started\r\n\r\n\ Josh\ Hunter\r\n\ 17/06/25\ -\ \r\n
+comment1.params=
+comment1.target=LinkedList()
+comment2.params=firstNode
+comment2.target=LinkedList(Node)
+comment3.params=
+comment3.target=Node\ getFirstNode()
+comment4.params=
+comment4.target=Node\ getFinalNode()
+comment5.params=firstNode
+comment5.target=void\ setFirstNode(Node)
+comment6.params=finalNode
+comment6.target=void\ setFinalNode(Node)
+numComments=7
