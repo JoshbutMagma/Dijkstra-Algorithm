@@ -15,6 +15,7 @@ public class LinkedList
     }
     public LinkedList(Node firstNode){
         this.firstNode = firstNode;
+        getFirstNode().setDistance(0);
         this.finalNode = firstNode;
     }
     

@@ -8,11 +8,11 @@
 public class Algorithm
 {
     LinkedList demo;
-    public void dijkstraAlgorithm(){
+    public Algorithm(){
         /**
          * Testing a linear version of the algorithm
          */
-        demo = new LinkedList();
+        demo = new LinkedList(new Node(1));
         Node node;
         for(int i=2; i<4; i++){
             node = demo.getFinalNode();
