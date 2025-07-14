@@ -7,17 +7,19 @@
  */
 public class Algorithm
 {
-    LinkedList demo;
+    public LinkedList list;
+    private void newNode(int nodeNum){
+        Node node = list.getFinalNode();
+        list.setFinalNode(new Node(nodeNum));
+        list.getFinalNode().setPreviousNode(node);
+    }
     public Algorithm(){
         /**
          * Testing a linear version of the algorithm
          */
-        demo = new LinkedList(new Node(1));
-        Node node;
-        for(int i=2; i<4; i++){
-            node = demo.getFinalNode();
-            demo.setFinalNode(new Node(i));
-            demo.getFinalNode().setPreviousNode(node);
+        list = new LinkedList(new Node(1));
+        for(int i=0; i<2; i++){
+            newNode(i+2);
         }
     }
 }

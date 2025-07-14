@@ -1,6 +1,6 @@
 
 /**
- * Where the programming for the CopyOfCopyOfgui of this project will be stored
+ * Where the programming for the Gui of this project will be stored
  *
  * Josh Hunter
  * 16/06/25 -
@@ -17,8 +17,8 @@ public class Gui extends JFrame implements ActionListener
     JPanel sidePanel;
     JLabel nodeQuestion;
     JTextField nodeQuestionBox;
-    JButton random;
     JButton submitNodeAnswer;
+    JButton random;
     JButton createDiagram;
     /**
      * Constructor for the main window and objects in the window
@@ -54,7 +54,7 @@ public class Gui extends JFrame implements ActionListener
         sidePanel.setBackground(Color.decode("#777777"));
         this.add(sidePanel, BorderLayout.WEST);
         
-        //Objects in the bottom panel
+        //Objects in the side panel
         nodeQuestion = new JLabel("How many nodes should there be?");
         nodeQuestion.setForeground(Color.decode("#000000"));
         sidePanel.add(nodeQuestion);
@@ -70,6 +70,7 @@ public class Gui extends JFrame implements ActionListener
         random.addActionListener(this);
         sidePanel.add(random);
         
+        //Objects in the bottom panel
         createDiagram = new JButton("Create Diagram!");
         createDiagram.addActionListener(this);
         bottomPanel.add(createDiagram);

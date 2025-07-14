@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=WeightList
+comment0.text=\r\n\ List\ of\ all\ the\ weights\r\n\r\n\ Josh\ Hunter\r\n\ 14/07/25\ -\ \r\n
+comment1.params=
+comment1.target=WeightList()
+comment2.params=firstBridge
+comment2.target=WeightList(Bridge)
+comment3.params=
+comment3.target=Bridge\ getFirstBridge()
+comment4.params=bridgeNum
+comment4.target=Bridge\ findBridge(int)
+comment5.params=
+comment5.target=void\ setFirstBridge()
+numComments=6

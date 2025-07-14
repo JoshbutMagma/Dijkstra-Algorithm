@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=Algorithm
 comment0.text=\r\n\ Where\ the\ actual\ Dijkstra's\ algorithm\ will\ be\ done\r\n\r\n\ Josh\ Hunter\r\n\ 17/06/25\ -\ \r\n
-comment1.params=
-comment1.target=Algorithm()
-numComments=2
+comment1.params=nodeNum
+comment1.target=void\ newNode(int)
+comment2.params=
+comment2.target=Algorithm()
+numComments=3

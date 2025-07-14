@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Bridge
+comment0.text=\r\n\ Object\ class\ for\ the\ bridges\r\n\r\n\ Josh\ Hunter\r\n\ 14/07/25\r\n
+comment1.params=firstNode\ secondNode\ bridgeweight
+comment1.target=Bridge(Node,\ Node,\ int)
+comment1.text=\r\n\ Constructor\ for\ a\ bridge\r\n
+comment2.params=
+comment2.target=Node\ getFirstNode()
+comment2.text=\r\n\ Various\ getters\ for\ bridges\r\n
+comment3.params=
+comment3.target=Node\ getSecondNode()
+comment4.params=
+comment4.target=int\ getBridgeWeight()
+comment5.params=
+comment5.target=Bridge\ getNextBridge()
+numComments=6
