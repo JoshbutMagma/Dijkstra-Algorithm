@@ -92,6 +92,6 @@ public class Gui extends JFrame implements ActionListener
         }
     }
     /**
-     * Outcomes from inputs in the CopyOfCopyOfgui
+     * Outcomes from inputs in the Gui
      */
 }

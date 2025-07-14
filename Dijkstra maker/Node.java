@@ -18,7 +18,7 @@ public class Node
     public Node(int nodeNum){
         this.nodeNum = nodeNum;
         this.previousNode = null;
-        this.distance = -1;
+        this.distance = 16;
         this.completedStatus = false;
     }
     

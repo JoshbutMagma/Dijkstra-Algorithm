@@ -7,19 +7,38 @@
  */
 public class Algorithm
 {
-    public LinkedList list;
+    public LinkedList nodeList;
+    public WeightList weightList;
     private void newNode(int nodeNum){
-        Node node = list.getFinalNode();
-        list.setFinalNode(new Node(nodeNum));
-        list.getFinalNode().setPreviousNode(node);
+        Node node = nodeList.getFinalNode();
+        nodeList.setFinalNode(new Node(nodeNum));
+        nodeList.getFinalNode().setPreviousNode(node);
+    }
+    private Node popNode(){
+        Node node = nodeList.getFirstNode();
+        Node checkingNode = nodeList.getFinalNode();
+        Node backupNode = checkingNode;
+        while(checkingNode.getPreviousNode()!=null){
+            backupNode = checkingNode;
+            checkingNode = checkingNode.getPreviousNode();
+        }
+        return backupNode;
+    }
+    private void newBridge(Node firstNode, Node secondNode, int bridgeWeight){
+        Bridge bridge = weightList.getFirstBridge();
+        while(bridge.getNextBridge()!=null){
+            bridge = bridge.getNextBridge();
+        }
+        bridge.setNextBridge(new Bridge(firstNode, secondNode, bridgeWeight));
     }
     public Algorithm(){
-        /**
-         * Testing a linear version of the algorithm
-         */
-        list = new LinkedList(new Node(1));
-        for(int i=0; i<2; i++){
-            newNode(i+2);
+        boolean stillGoing = true;
+        Node currentNode;
+        while(stillGoing==true){
+            if(nodeList.getFirstNode()==null){
+                stillGoing = false;
+            }
+            currentNode = popNode();
         }
     }
 }

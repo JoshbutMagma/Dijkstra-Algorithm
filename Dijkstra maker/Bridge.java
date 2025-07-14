@@ -37,4 +37,8 @@ public class Bridge
     public Bridge getNextBridge(){
         return(this.nextBridge);
     }
+    
+    public void setNextBridge(Bridge nextBridge){
+        this.nextBridge = nextBridge;
+    }
 }
