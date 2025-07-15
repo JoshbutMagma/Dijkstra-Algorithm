@@ -15,4 +15,5 @@ comment5.params=
 comment5.target=Bridge\ getNextBridge()
 comment6.params=nextBridge
 comment6.target=void\ setNextBridge(Bridge)
+comment6.text=\r\n\ Setting\ the\ next\ bridge\ for\ a\ bridge\ in\ the\ list\r\n\ The\ other\ variables\ won't\ be\ changed\r\n
 numComments=7

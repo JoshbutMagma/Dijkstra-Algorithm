@@ -38,6 +38,10 @@ public class Bridge
         return(this.nextBridge);
     }
     
+    /**
+     * Setting the next bridge for a bridge in the list
+     * The other variables won't be changed
+     */
     public void setNextBridge(Bridge nextBridge){
         this.nextBridge = nextBridge;
     }

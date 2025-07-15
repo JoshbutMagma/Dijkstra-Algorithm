@@ -9,6 +9,9 @@ public class WeightList
 {
     private Bridge firstBridge;
     
+    /**
+     * Constructors for the bridge list
+     */
     public WeightList(){
         
     }
@@ -16,6 +19,9 @@ public class WeightList
         this.firstBridge = firstBridge;
     }
     
+    /**
+     * Getter and finder for bridges
+     */
     public Bridge getFirstBridge(){
         return(this.firstBridge);
     }
@@ -27,6 +33,9 @@ public class WeightList
         return(bridge);
     }
     
+    /**
+     * Setter for the bridge list
+     */
     public void setFirstBridge(){
         this.firstBridge = firstBridge;
     }

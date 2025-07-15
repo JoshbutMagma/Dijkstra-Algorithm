@@ -10,6 +10,9 @@ public class LinkedList
     private Node firstNode;
     private Node finalNode;
     
+    /**
+     * Constructors for the list of nodes
+     */
     public LinkedList(){
         
     }
@@ -19,6 +22,9 @@ public class LinkedList
         this.finalNode = firstNode;
     }
     
+    /**
+     * Getters for the node list
+     */
     public Node getFirstNode(){
         return(this.firstNode);
     }
@@ -26,6 +32,9 @@ public class LinkedList
         return(this.finalNode);
     }
     
+    /**
+     * Setters for the node list
+     */
     public void setFirstNode(Node firstNode){
         this.firstNode = firstNode;
     }
