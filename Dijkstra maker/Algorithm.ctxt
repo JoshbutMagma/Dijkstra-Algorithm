@@ -2,10 +2,13 @@
 comment0.target=Algorithm
 comment1.params=nodeNum
 comment1.target=void\ newNode(int)
+comment1.text=\r\n\ Create\ a\ new\ node\r\n
 comment2.params=
 comment2.target=Node\ popNode()
+comment2.text=\r\n\ Remove\ a\ node\ while\ copying\ it's\ data\r\n
 comment3.params=firstNode\ secondNode\ bridgeWeight
 comment3.target=void\ newBridge(Node,\ Node,\ int)
+comment3.text=\r\n\ Create\ a\ new\ bridge\r\n
 comment4.params=
 comment4.target=Algorithm()
 numComments=5

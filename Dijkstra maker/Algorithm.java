@@ -10,11 +10,17 @@ public class Algorithm
 {
     public LinkedList nodeList;
     public WeightList weightList;
+    /**
+     * Create a new node
+     */
     private void newNode(int nodeNum){
         Node node = nodeList.getFinalNode();
         nodeList.setFinalNode(new Node(nodeNum));
         nodeList.getFinalNode().setPreviousNode(node);
     }
+    /**
+     * Remove a node while copying it's data
+     */
     private Node popNode(){
         Node checkingNode = nodeList.getFinalNode();
         Node backupNode = checkingNode;
@@ -22,8 +28,12 @@ public class Algorithm
             backupNode = checkingNode;
             checkingNode = checkingNode.getPreviousNode();
         }
-        return backupNode;
+        nodeList.setFirstNode(backupNode);
+        return checkingNode;
     }
+    /**
+     * Create a new bridge
+     */
     private void newBridge(Node firstNode, Node secondNode, int bridgeWeight){
         Bridge bridge = weightList.getFirstBridge();
         while(bridge.getNextBridge()!=null){
@@ -34,12 +44,13 @@ public class Algorithm
     
     public Algorithm(){
         boolean stillGoing = true;
+        int thisCost;
         ArrayList<Bridge> connectingBridges = new ArrayList<Bridge>();
         Node currentNode;
         Bridge checkingBridge;
         while(stillGoing==true){
             if(nodeList.getFirstNode()==null){
-                stillGoing = false;
+                stillGoing = false; //End the program if there are no more nodes
             }
             currentNode = popNode();
             if(currentNode.getCompletedStatus()==false){
@@ -53,6 +64,7 @@ public class Algorithm
                     }
                     checkingBridge = checkingBridge.getNextBridge();
                 }
+                
             }
         }
     }
