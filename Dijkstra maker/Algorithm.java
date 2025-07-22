@@ -16,19 +16,14 @@ public class Algorithm
     private void newNode(int nodeNum){
         Node node = nodeList.getFinalNode();
         nodeList.setFinalNode(new Node(nodeNum));
-        nodeList.getFinalNode().setPreviousNode(node);
+        node.setNextListNode(nodeList.getFinalNode());
     }
     /**
      * Remove a node while copying it's data
      */
     private Node popNode(){
-        Node checkingNode = nodeList.getFinalNode();
-        Node backupNode = checkingNode;
-        while(checkingNode.getPreviousNode()!=null){
-            backupNode = checkingNode;
-            checkingNode = checkingNode.getPreviousNode();
-        }
-        nodeList.setFirstNode(backupNode);
+        Node checkingNode = nodeList.getFirstNode();
+        nodeList.setFirstNode(checkingNode.getNextListNode());
         return checkingNode;
     }
     /**

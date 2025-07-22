@@ -11,6 +11,7 @@ public class Node
     private Node previousNode;
     private int distance;
     private boolean completedStatus;
+    private Node nextListNode;
     
     /**
      * Constructor for a node
@@ -20,6 +21,7 @@ public class Node
         this.previousNode = null;
         this.distance = -1;
         this.completedStatus = false;
+        this.nextListNode = null;
     }
     
     /**
@@ -37,6 +39,9 @@ public class Node
     public boolean getCompletedStatus(){
         return(this.completedStatus);
     }
+    public Node getNextListNode(){
+        return(this.nextListNode);
+    }
     
     /**
      * Various setters for nodes
@@ -49,5 +54,8 @@ public class Node
     }
     public void setCompletedStatus(boolean completedStatus){
         this.completedStatus = completedStatus;
+    }
+    public void setNextListNode(Node nextListNode){
+        this.nextListNode = nextListNode;
     }
 }
