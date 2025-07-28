@@ -38,27 +38,35 @@ public class Algorithm
      * Create a new bridge
      */
     private void newBridge(Node firstNode, Node secondNode, int bridgeWeight){
-        Bridge bridge = weightList.getFirstBridge();
-        while(bridge.getNextBridge()!=null){
-            bridge = bridge.getNextBridge();
-        }
-        bridge.setNextBridge(new Bridge(firstNode, secondNode, bridgeWeight));
+        
     }
     
-    public Algorithm(int nodeNum){
+    public Algorithm(int nodeNum, int bridgeNum){
         //Initialising stuff
         Random random = new Random();
         boolean stillGoing = true;
+        boolean bridgeLoop = true;
         int thisCost;
+        int currentNum;
         ArrayList<Bridge> connectingBridges = new ArrayList<Bridge>();
         Node currentNode;
         Node otherNode;
+        Node firstBridgeNode;
+        Node secondBridgeNode;
         Bridge checkingBridge;
         
         System.out.println("Starting making nodes");
         //Creating nodes
         for(int i=0; i<nodeNum; i++){
             newNode(i+2);
+        }
+        
+        System.out.println("Starting making bridges");
+        //Creating bridges
+        for(int i=0; i<bridgeNum; i++){
+            while(bridgeLoop){
+                
+            }
         }
         
         System.out.println("Started algorithm");

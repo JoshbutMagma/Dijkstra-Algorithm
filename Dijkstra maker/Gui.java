@@ -18,10 +18,15 @@ public class Gui extends JFrame implements ActionListener
     JLabel nodeQuestion;
     JTextField nodeQuestionBox;
     JButton submitNodeAnswer;
-    JButton random;
+    JButton randomNode;
+    JLabel bridgeQuestion;
+    JTextField bridgeQuestionBox;
+    JButton submitBridgeAnswer;
+    JButton randomBridge;
     JButton createDiagram;
     
     int nodeNum = 0;
+    int bridgeNum = 0;
     /**
      * Constructor for the main window and objects in the window
      */
@@ -68,9 +73,24 @@ public class Gui extends JFrame implements ActionListener
         submitNodeAnswer.addActionListener(this);
         sidePanel.add(submitNodeAnswer);
         
-        random = new JButton("Random amount");
-        random.addActionListener(this);
-        sidePanel.add(random);
+        randomNode = new JButton("Random amount");
+        randomNode.addActionListener(this);
+        sidePanel.add(randomNode);
+        
+        bridgeQuestion = new JLabel("How many bridges should there be?");
+        bridgeQuestion.setForeground(Color.decode("#000000"));
+        sidePanel.add(bridgeQuestion);
+        
+        bridgeQuestionBox = new JTextField(20);
+        sidePanel.add(bridgeQuestionBox);
+        
+        submitBridgeAnswer = new JButton("Submit bridge amount");
+        submitBridgeAnswer.addActionListener(this);
+        sidePanel.add(submitBridgeAnswer);
+        
+        randomBridge = new JButton("Random amount");
+        randomBridge.addActionListener(this);
+        sidePanel.add(randomBridge);
         
         //Objects in the bottom panel
         createDiagram = new JButton("Create Diagram!");
@@ -91,12 +111,15 @@ public class Gui extends JFrame implements ActionListener
         switch(cmd){
             case "Create Diagram!":
                 System.out.println(cmd);
-                new Algorithm(nodeNum);
+                new Algorithm(nodeNum, bridgeNum);
                 break;
             case "Submit node amount":
                 System.out.println(cmd);
                 nodeNum = Integer.parseInt(nodeQuestionBox.getText());
                 break;
+            case "Submit bridge amount":
+                System.out.println(cmd);
+                bridgeNum = Integer.parseInt(bridgeQuestionBox.getText());
             default:
                 break;
         }
