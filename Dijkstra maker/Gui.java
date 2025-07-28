@@ -20,6 +20,8 @@ public class Gui extends JFrame implements ActionListener
     JButton submitNodeAnswer;
     JButton random;
     JButton createDiagram;
+    
+    int nodeNum = 0;
     /**
      * Constructor for the main window and objects in the window
      */
@@ -87,11 +89,16 @@ public class Gui extends JFrame implements ActionListener
         String cmd=e.getActionCommand();
         
         switch(cmd){
+            case "Create Diagram!":
+                System.out.println(cmd);
+                new Algorithm(nodeNum);
+                break;
+            case "Submit node amount":
+                System.out.println(cmd);
+                nodeNum = Integer.parseInt(nodeQuestionBox.getText());
+                break;
             default:
-                
+                break;
         }
     }
-    /**
-     * Outcomes from inputs in the Gui
-     */
 }

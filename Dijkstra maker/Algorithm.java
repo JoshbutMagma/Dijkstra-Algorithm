@@ -6,17 +6,25 @@
  * 17/06/25 - 
  */
 import java.util.ArrayList;
+import java.util.Random;
 public class Algorithm
 {
-    public LinkedList nodeList;
-    public WeightList weightList;
+    public LinkedList nodeList = new LinkedList();
+    public WeightList weightList = new WeightList();
     /**
      * Create a new node
      */
     private void newNode(int nodeNum){
-        Node node = nodeList.getFinalNode();
-        nodeList.setFinalNode(new Node(nodeNum));
-        node.setNextListNode(nodeList.getFinalNode());
+        if(nodeList.getFinalNode()!=null){
+            Node node = nodeList.getFinalNode();
+            nodeList.setFinalNode(new Node(nodeNum));
+            node.setNextListNode(nodeList.getFinalNode());
+        }else{
+            Node node = new Node(1);
+            nodeList.setFirstNode(node);
+            nodeList.setFinalNode(node);
+            node.setDistance(0);
+        }
     }
     /**
      * Remove a node while copying it's data
@@ -37,8 +45,9 @@ public class Algorithm
         bridge.setNextBridge(new Bridge(firstNode, secondNode, bridgeWeight));
     }
     
-    public Algorithm(){
+    public Algorithm(int nodeNum){
         //Initialising stuff
+        Random random = new Random();
         boolean stillGoing = true;
         int thisCost;
         ArrayList<Bridge> connectingBridges = new ArrayList<Bridge>();
@@ -46,13 +55,22 @@ public class Algorithm
         Node otherNode;
         Bridge checkingBridge;
         
+        System.out.println("Starting making nodes");
+        //Creating nodes
+        for(int i=0; i<nodeNum; i++){
+            newNode(i+2);
+        }
+        
+        System.out.println("Started algorithm");
         //Dijkstra's Algorithm
         while(stillGoing==true){
+            System.out.println("Checking if there is a valid node");
             //End the program if there are no more nodes
-            if(nodeList.getFirstNode()==null){
+            if(nodeList.getFinalNode().getCompletedStatus()==true){
                 stillGoing = false;
             }
             
+            System.out.println("Started working on a node");
             currentNode = popNode(); //Remove a node from the list, and start to look at it
             //The workings that happen if the node hasn't been completed yet
             if(currentNode.getCompletedStatus()==false){
@@ -61,6 +79,7 @@ public class Algorithm
                     connectingBridges.remove(connectingBridges.size()-1);
                 }
                 
+                System.out.println("Starting adding bridges to a list");
                 //Add all valid bridges to the ArrayList
                 checkingBridge = weightList.getFirstBridge();
                 while(checkingBridge.getNextBridge()!=null){
@@ -70,6 +89,7 @@ public class Algorithm
                     checkingBridge = checkingBridge.getNextBridge();
                 }
                 
+                System.out.println("Started updating nodes");
                 //Updating all the nodes attached to bridges
                 for(int i=0; i<connectingBridges.size(); i++){
                     otherNode = currentNode; //This part doesn't do anything in the grand scheme of things since otherNode's value is changed immediately afterwards, however the programming doesn't work without it
@@ -81,6 +101,7 @@ public class Algorithm
                     }else if(connectingBridges.get(i).getSecondNode()==currentNode){
                         otherNode = connectingBridges.get(i).getFirstNode();
                     }
+                    System.out.println("Updating nodes");
                     if(otherNode.getDistance()==-1){ //If the node doesn't have a set distance yet
                         otherNode.setDistance(thisCost);
                         otherNode.setPreviousNode(currentNode);
@@ -92,5 +113,8 @@ public class Algorithm
             }
             currentNode.setCompletedStatus(true);
         }
+        
+        int finalCount;
+        
     }
 }
