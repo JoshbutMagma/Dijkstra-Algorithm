@@ -40,31 +40,47 @@ public class Algorithm
     private void newBridge(int nodeNum){
         Random random = new Random();
         boolean bridgeLoop = true;
+        int repeatLock;
+        int secondRepeatLock;
         int firstNode = 0;
         int secondNode = 0;
         int bridgeWeight;
-        Node firstBridgeNode;
-        Node secondBridgeNode;
+        Node firstBridgeNode = nodeList.getFirstNode();
+        Node secondBridgeNode = nodeList.getFirstNode();
         Bridge thisBridge;
         Bridge thatBridge;
+        Bridge checkingBridge;
         
         while(bridgeLoop){
             firstNode = random.nextInt(nodeNum);
             secondNode = random.nextInt(nodeNum);
             
-            if(firstNode!=secondNode){
-                bridgeLoop = false;
+            firstBridgeNode = nodeList.getFirstNode();
+            for(int i=0; i<firstNode; i++){
+                firstBridgeNode = firstBridgeNode.getNextListNode();
             }
-        }
-        
-        firstBridgeNode = nodeList.getFirstNode();
-        for(int i=0; i<firstNode; i++){
-            firstBridgeNode = firstBridgeNode.getNextListNode();
-        }
-        
-        secondBridgeNode = nodeList.getFirstNode();
-        for(int i=0; i<secondNode; i++){
-            secondBridgeNode = secondBridgeNode.getNextListNode();
+            
+            secondBridgeNode = nodeList.getFirstNode();
+            for(int i=0; i<secondNode; i++){
+                secondBridgeNode = secondBridgeNode.getNextListNode();
+            }
+            
+            repeatLock = 0;
+            secondRepeatLock = 0;
+            checkingBridge = weightList.getFirstBridge();
+            if(firstNode!=secondNode){
+                if(weightList.getFirstBridge()!=null){
+                    while(checkingBridge.getNextBridge()!=null){
+                        if(!(firstBridgeNode==checkingBridge.getFirstNode()&&secondBridgeNode==checkingBridge.getSecondNode())&&!(firstBridgeNode==checkingBridge.getSecondNode()&&secondBridgeNode==checkingBridge.getFirstNode())){
+                            repeatLock++;
+                        }
+                        secondRepeatLock++;
+                    }
+                    if(repeatLock==secondRepeatLock&&repeatLock!=0){
+                        bridgeLoop = false;
+                    }
+                }else{bridgeLoop=false;}
+            }
         }
         
         bridgeWeight = random.nextInt(15);
@@ -166,11 +182,11 @@ public class Algorithm
         }
         System.out.println("Finished algorithm");
         
-        int finalCount;
         Node finalNode = nodeList.getFinalNode();
         while(finalNode.getPreviousNode()!=null){
             System.out.println("Node " + finalNode.getNodeNum() + " with a distance of " + finalNode.getDistance());
             finalNode = finalNode.getPreviousNode();
         }
+        System.out.println("Node " + finalNode.getNodeNum() + " with a distance of " + finalNode.getDistance());
     }
 }
