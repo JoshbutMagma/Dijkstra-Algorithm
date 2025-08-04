@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Algorithm
-comment1.params=nodeNum
+comment1.params=numOfNode
 comment1.target=void\ newNode(int)
 comment1.text=\r\n\ Create\ a\ new\ node\r\n
 comment2.params=

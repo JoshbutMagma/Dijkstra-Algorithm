@@ -36,7 +36,7 @@ public class WeightList
     /**
      * Setter for the bridge list
      */
-    public void setFirstBridge(){
+    public void setFirstBridge(Bridge firstBridge){
         this.firstBridge = firstBridge;
     }
 }

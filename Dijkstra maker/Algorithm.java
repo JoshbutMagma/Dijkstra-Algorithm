@@ -14,10 +14,10 @@ public class Algorithm
     /**
      * Create a new node
      */
-    private void newNode(int nodeNum){
+    private void newNode(int numOfNode){
         if(nodeList.getFinalNode()!=null){
             Node node = nodeList.getFinalNode();
-            nodeList.setFinalNode(new Node(nodeNum));
+            nodeList.setFinalNode(new Node(numOfNode));
             node.setNextListNode(nodeList.getFinalNode());
         }else{
             Node node = new Node(1);
@@ -40,20 +40,47 @@ public class Algorithm
     private void newBridge(int nodeNum){
         Random random = new Random();
         boolean bridgeLoop = true;
-        int firstNode;
-        int secondNode;
+        int firstNode = 0;
+        int secondNode = 0;
         int bridgeWeight;
         Node firstBridgeNode;
         Node secondBridgeNode;
+        Bridge thisBridge;
+        Bridge thatBridge;
         
         while(bridgeLoop){
-                firstNode = random.nextInt(nodeNum);
-                secondNode = random.nextInt(nodeNum);
-                bridgeWeight = random.nextInt(15);
-                if(firstNode!=secondNode){
-                    
-                }
+            firstNode = random.nextInt(nodeNum);
+            secondNode = random.nextInt(nodeNum);
+            
+            if(firstNode!=secondNode){
+                bridgeLoop = false;
             }
+        }
+        
+        firstBridgeNode = nodeList.getFirstNode();
+        for(int i=0; i<firstNode; i++){
+            firstBridgeNode = firstBridgeNode.getNextListNode();
+        }
+        
+        secondBridgeNode = nodeList.getFirstNode();
+        for(int i=0; i<secondNode; i++){
+            secondBridgeNode = secondBridgeNode.getNextListNode();
+        }
+        
+        bridgeWeight = random.nextInt(15);
+        bridgeWeight++;
+        
+        thisBridge = new Bridge(firstBridgeNode, secondBridgeNode, bridgeWeight);
+        
+        if(weightList.getFirstBridge()!=null){
+            thatBridge = weightList.getFirstBridge();
+            while(thatBridge.getNextBridge()!=null){
+                thatBridge = thatBridge.getNextBridge();
+            }
+            thatBridge.setNextBridge(thisBridge);
+        }else{
+            weightList.setFirstBridge(thisBridge);
+        }
     }
     
     public Algorithm(int nodeNum, int bridgeNum){
@@ -64,14 +91,16 @@ public class Algorithm
         ArrayList<Bridge> connectingBridges = new ArrayList<Bridge>();
         Node currentNode;
         Node otherNode;
+        Node goalNode;
         Bridge checkingBridge;
         
         System.out.println("Starting making nodes");
         //Creating nodes
         for(int i=0; i<nodeNum; i++){
-            newNode(i+2);
+            newNode(i+1);
             System.out.println("Made new node");
         }
+        goalNode = nodeList.getFinalNode();
         
         System.out.println("Starting making bridges");
         //Creating bridges
@@ -85,11 +114,14 @@ public class Algorithm
         while(stillGoing==true){
             System.out.println("Checking if there is a valid node");
             //End the program if there are no more nodes
-            if(nodeList.getFinalNode().getCompletedStatus()==true){
+            if(goalNode.getCompletedStatus()==true){
                 stillGoing = false;
             }
             
             System.out.println("Started working on a node");
+            if(nodeList.getFirstNode().getNextListNode()==null){
+                stillGoing = false;
+            }
             currentNode = popNode(); //Remove a node from the list, and start to look at it
             //The workings that happen if the node hasn't been completed yet
             if(currentNode.getCompletedStatus()==false){
@@ -129,11 +161,16 @@ public class Algorithm
                         otherNode.setPreviousNode(currentNode);
                     }
                 }
+                currentNode.setCompletedStatus(true);
             }
-            currentNode.setCompletedStatus(true);
         }
+        System.out.println("Finished algorithm");
         
         int finalCount;
-        
+        Node finalNode = nodeList.getFinalNode();
+        while(finalNode.getPreviousNode()!=null){
+            System.out.println("Node " + finalNode.getNodeNum() + " with a distance of " + finalNode.getDistance());
+            finalNode = finalNode.getPreviousNode();
+        }
     }
 }
